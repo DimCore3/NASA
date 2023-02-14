@@ -2,7 +2,6 @@ import '../styles/PictureOfDay.scss'
 import ViewImg from './UI/ViewImg/ViewImg';
 
 const PictureOfDay = ({ apod }) => {
-
     return (
         <div className="pictureOfDay">
             <div className='imgAndTitle'>
