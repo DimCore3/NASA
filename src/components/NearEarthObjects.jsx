@@ -3,8 +3,12 @@ import DaysCarousel from './UI/DaysCarousel/DaysCarousel'
 import '../styles/NearEarthObjects.scss'
 
 const NearEarthObjects = ({neoWs}) => {
-    const [enabledIndexDay, setEnabledIndexDay] = useState(0);
     const [dateList, setDateList] = useState([]);
+    const [choosedDate, setChoosedDate] = useState('');
+
+    useEffect(() => {
+        console.log(choosedDate);
+    }, [choosedDate])
 
     useEffect(() => {
         getInfo(neoWs.near_earth_objects);
@@ -32,12 +36,18 @@ const NearEarthObjects = ({neoWs}) => {
     return ( 
         <div className="nearEarthObjects">
             {dateList.length !== 0 
-                ? <DaysCarousel allDates={dateList} enabledIndexDay={enabledIndexDay} setEnabledIndexDay={setEnabledIndexDay}/>
+                ? 
+                <div> 
+                    <DaysCarousel allDates={dateList} setChoosedDate={setChoosedDate}/>
+                    <div className='neoContent'>
+                        {/* <h2>{neoWs.near_earth_objects[choosedDate].length}астеройдов</h2> */}
+                        <p>Here will be Neo graphic</p>
+                    </div>
+                </div>
+                
                 : <h2 className='neoContent'>Загрузка данных...</h2>
             }
-            <div className='neoContent'>
-                Here will be Neo graphic
-            </div>
+
         </div>
      );
 }
