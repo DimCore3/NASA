@@ -46,6 +46,10 @@ table {
   margin: 1rem;
 }
 
+.canvasParentDiv {
+	border: 3px red solid;
+}
+
 img {
   width: 100%;
 }

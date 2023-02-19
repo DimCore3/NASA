@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import classes from './DaysCarousel.module.scss'
 
-const DaysCarousel = ({ allDates, setChoosedDate }) => {
+const DaysCarousel = ({ allDates, setIsLoadedDaysCarousel, setChoosedDate }) => {
     const [enabledIndexDay, setEnabledIndexDay] = useState(0);
-
     const months = [
         'Jun', 'Feb', 'Mar',
         'Apr', 'May', 'Jun',
@@ -13,6 +12,7 @@ const DaysCarousel = ({ allDates, setChoosedDate }) => {
 
     useEffect(()=> {
         setChoosedDate(allDates[enabledIndexDay]);
+        setIsLoadedDaysCarousel(true);
     })
 
     const getDateForSelecter = (day) => {
